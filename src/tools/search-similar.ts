@@ -25,7 +25,7 @@ export function registerSearchSimilar(server: McpServer): void {
     {
       idea: z
         .string()
-        .describe("만들고 싶은 서비스 아이디어 (자연어, 한국어/영어 모두 가능)"),
+        .describe("The service idea to search for. IMPORTANT: Always translate to English before passing. For example, 'AI 영수증 정리 앱' should be passed as 'AI receipt organizer app'."),
       category: z
         .string()
         .optional()

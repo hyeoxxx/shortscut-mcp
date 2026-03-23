@@ -30,10 +30,10 @@ export async function searchGitHub(
       headers["Authorization"] = `Bearer ${token}`;
     }
 
+    // topic 기반 + 관련성 정렬 (sort 생략 시 best match)
+    // stars>10 필터로 쓰레기 레포 제거
     const params = new URLSearchParams({
-      q: `${query} in:name,description,readme`,
-      sort: "stars",
-      order: "desc",
+      q: `${query} in:name,description stars:>10`,
       per_page: String(maxResults),
     });
 

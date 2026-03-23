@@ -21,7 +21,7 @@ export function registerSuggestDifferentiation(server: McpServer): void {
     {
       idea: z
         .string()
-        .describe("만들고 싶은 서비스 아이디어"),
+        .describe("The service idea to analyze. IMPORTANT: Always translate to English before passing."),
       competitors: z
         .array(z.string())
         .optional()

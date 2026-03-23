@@ -85,7 +85,7 @@ export function registerTechStackSuggest(server: McpServer): void {
     {
       idea: z
         .string()
-        .describe("만들고 싶은 서비스 아이디어"),
+        .describe("The service idea to get stack recommendations for. IMPORTANT: Always translate to English before passing."),
       category: z
         .string()
         .optional()
