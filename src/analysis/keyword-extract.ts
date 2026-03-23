@@ -245,17 +245,13 @@ export function extractKeywordsAndCategory(idea: string): ExtractedInfo {
   const keywords = [...new Set(words)];
 
   // 검색 쿼리 생성
+  // AI가 영어로 번역해서 넘겨주므로 영어 키워드만 추출
   const searchQueries = {
     korean: keywords.join(" "),
     english: keywords
       .filter((w) => /[a-zA-Z]/.test(w))
-      .join(" "),
+      .join(" ") || keywords.slice(0, 3).join(" "),
   };
-
-  // 영어 키워드가 부족하면 핵심 한국어 키워드를 그대로 사용
-  if (!searchQueries.english) {
-    searchQueries.english = keywords.slice(0, 3).join(" ");
-  }
 
   return {
     keywords,
